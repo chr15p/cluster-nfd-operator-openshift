@@ -242,7 +242,7 @@ spec:
     - name: build-bundle
       params:
       - name: IMAGE
-        value: $(params.output-image)
+        value: quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-cluster-nfd-operator/openshift-cluster-nfd-operator:bundle-{{revision}}
       - name: DOCKERFILE
         value: rhtap/bundle.Dockerfile
       - name: CONTEXT
