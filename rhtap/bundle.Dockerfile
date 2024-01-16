@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi-minimal:9.3 AS builder
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.3 AS builder
 
 ARG NODE_FEATURE_DISCOVERY_IMAGE=quay.io/openshift/origin-node-feature-discovery:4.15
 ARG CLUSTER_NFD_OPERATOR
