@@ -10,7 +10,7 @@ RUN microdnf update -y \
 
 RUN ls -l
 RUN rhtap/render_templates.py -t rhtap/nfd.clusterserviceversion.yaml.j2 \
-        -r manifests/stable/nfd.clusterserviceversion.yaml \
+        -r manifests/stable/manifests/nfd.clusterserviceversion.yaml \
         node_feature_discovery_image=${NODE_FEATURE_DISCOVERY_IMAGE} \
         cluster_nfd_operator=${CLUSTER_NFD_OPERATOR}
 
