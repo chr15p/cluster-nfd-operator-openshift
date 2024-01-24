@@ -16,7 +16,7 @@ metadata:
               "configData": "#    - name: \"more.kernel.features\"\n#      matchOn:\n#      - loadedKMod: [\"example_kmod3\"]\n#    - name: \"more.features.by.nodename\"\n#      value: customValue\n#      matchOn:\n#      - nodename: [\"special-.*-node-.*\"]\n"
             },
             "operand": {
-              "image": "quay.io/openshift/origin-node-feature-discovery@sha256:4e8ffa744dadae44e85e380f015bbe4f4a5ed908f09c26c090b5ae11eb6de2c8",
+              "image": "quay.io/openshift/origin-node-feature-discovery:4.15",
               "servicePort": 12000
             },
             "workerConfig": {
@@ -65,7 +65,7 @@ metadata:
       ]
     capabilities: Deep Insights
     categories: Integration & Delivery,OpenShift Optional
-    containerImage: quay.io/openshift/origin-cluster-nfd-operator@sha256:fc312d80bd87cca656199accd1c94b8d7450cdcc49d2fa0895cd4dbf5a455fa1
+    containerImage: {{ cluster_nfd_operator }}
     description: |-
       The Node Feature Discovery Operator manages the detection of hardware features and configuration in a Kubernetes cluster by labeling the nodes with hardware-specific information. The Node Feature Discovery (NFD) will label the host with node-specific attributes, like PCI cards, kernel, or OS version, and many more.
 
@@ -797,8 +797,8 @@ spec:
                 - name: OPERATOR_NAME
                   value: cluster-nfd-operator
                 - name: NODE_FEATURE_DISCOVERY_IMAGE
-                  value: quay.io/openshift/origin-node-feature-discovery@sha256:4e8ffa744dadae44e85e380f015bbe4f4a5ed908f09c26c090b5ae11eb6de2c8
-                image: quay.io/openshift/origin-cluster-nfd-operator@sha256:fc312d80bd87cca656199accd1c94b8d7450cdcc49d2fa0895cd4dbf5a455fa1
+                  value: {{ node_feature_discovery_image }}
+                image: {{ cluster_nfd_operator }}
                 livenessProbe:
                   httpGet:
                     path: /healthz
