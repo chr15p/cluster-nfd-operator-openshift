@@ -11,7 +11,7 @@ metadata:
       == "rhtap-test"
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: openshift-cluster-nfd-operator
+    appstudio.openshift.io/application: openshift-node-feature-discovery
     appstudio.openshift.io/component: openshift-cluster-nfd-operator
     pipelines.appstudio.openshift.io/type: build
   name: openshift-cluster-nfd-operator-on-pull-request
@@ -21,11 +21,11 @@ spec:
   - name: dockerfile
     value: Dockerfile
   - name: git-url
-    value: '{{repo_url}}'
+    value: '{{source_url}}'
   - name: image-expires-after
     value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-cluster-nfd-operator/openshift-cluster-nfd-operator:on-pr-{{revision}}
+    value: quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery/openshift-cluster-nfd-operator:on-pr-{{revision}}
   - name: path-context
     value: .
   - name: revision
@@ -93,10 +93,6 @@ spec:
       description: Skip checks against built image
       name: skip-checks
       type: string
-    - default: "true"
-      description: Skip optional checks, set false if you want to run optional checks
-      name: skip-optional
-      type: string
     - default: "false"
       description: Execute the build with network isolation
       name: hermetic
@@ -142,12 +138,6 @@ spec:
         value: $(params.rebuild)
       - name: skip-checks
         value: $(params.skip-checks)
-      - name: skip-optional
-        value: $(params.skip-optional)
-      - name: pipelinerun-name
-        value: $(context.pipelineRun.name)
-      - name: pipelinerun-uid
-        value: $(context.pipelineRun.uid)
       taskRef:
         params:
         - name: name
