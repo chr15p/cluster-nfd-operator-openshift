@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-import jinja2
+#import jinja2
+import re
 
 render_vars = {}
 
@@ -19,16 +20,30 @@ for i in args.params:
     render_vars[k] = v
 
 print(render_vars)
+
+
+with open(template_file_name) as file:
+    contents = file.read()
+
+    for k,v in render_vars.items():
+        #parts = v.split(":")
+        print(f"k={k}, v={v}")
+        print(k+"@sha256:[0-9A-Fa-f]{65}")
+        contents = re.sub(r"" +k+"@sha256:[0-9A-Fa-f]+", v, contents)
+
+#print(contents)
 # Running the Jinja2 magic for the CSV
 #template_file_name = "clusterserviceversion.yaml.j2"
 #template_file_path = os.path.join(script_path, template_file_name)
 #rendered_file_name = f"{d}/kernel-module-management.{render_vars['release_version']}.clusterserviceversion.yaml"
 #rendered_file_path = os.path.join(script_path, rendered_file_name)
 
-environment = jinja2.Environment(loader=jinja2.FileSystemLoader("."))
-output_text = environment.get_template(template_file_name).render(render_vars)
+#environment = jinja2.Environment(loader=jinja2.FileSystemLoader("."))
+#output_text = environment.get_template(template_file_name).render(render_vars)
+#
+
 
 with open(rendered_file_name, "w") as output_file:
-    output_file.write(output_text)
+    output_file.write(contents)
 
 
