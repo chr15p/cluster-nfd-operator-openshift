@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.3 AS builder
+FROM registry.access.redhat.com/ubi9/ubi:9.3 AS builder
 
 ARG NODE_FEATURE_DISCOVERY_IMAGE=quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery/openshift-node-feature-discovery@sha256:4e8ffa744dadae44e85e380f015bbe4f4a5ed908f09c26c090b5ae11eb6de2c8
 ARG CLUSTER_NFD_OPERATOR
