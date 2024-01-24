@@ -4,15 +4,12 @@ ARG NODE_FEATURE_DISCOVERY_IMAGE=quay.io/redhat-user-workloads/rhn-gps-cprocter-
 ARG CLUSTER_NFD_OPERATOR
 
 COPY . .
-RUN microdnf update -y \
-    && microdnf install -y python3-jinja2 \
-    && microdnf clean all
 
 RUN ls -l
-RUN rhtap/render_templates.py -t rhtap/nfd.clusterserviceversion.yaml.j2 \
+RUN rhtap/render_templates.py -t manifests/stable/manifests/nfd.clusterserviceversion.yaml \
         -r manifests/stable/manifests/nfd.clusterserviceversion.yaml \
-        node_feature_discovery_image=${NODE_FEATURE_DISCOVERY_IMAGE} \
-        cluster_nfd_operator=${CLUSTER_NFD_OPERATOR}
+        quay.io/openshift/origin-node-feature-discovery=${NODE_FEATURE_DISCOVERY_IMAGE} \ 
+        quay.io/openshift/origin-cluster-nfd-operator=${CLUSTER_NFD_OPERATOR}
 
 FROM scratch
 
