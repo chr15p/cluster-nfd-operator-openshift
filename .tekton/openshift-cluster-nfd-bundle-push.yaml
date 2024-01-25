@@ -23,7 +23,7 @@ spec:
   - name: output-image
     value: quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery/openshift-cluster-nfd-bundle:{{revision}}
   - name: path-context
-    value: .
+    value: manifests/stable
   - name: revision
     value: '{{revision}}'
   pipelineSpec:
