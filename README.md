@@ -74,3 +74,4 @@ There 2 options:
 
 1) Using ARM server - process is the same, but you should use Dockerfile.arm instead of Dockerfile
 2) Using x86 server/laptop - process is the same but before running build command, Makefile.arm should be copied into Makefile
+
