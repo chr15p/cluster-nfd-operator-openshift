@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi9/ubi:9.3 AS builder
 
-ARG NODE_FEATURE_DISCOVERY_IMAGE=quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery/openshift-node-feature-discovery@sha256:4e8ffa744dadae44e85e380f015bbe4f4a5ed908f09c26c090b5ae11eb6de2c8
+ARG NODE_FEATURE_DISCOVERY_IMAGE=quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery/openshift-node-feature-discovery@sha256:47e290893977a1b124bd3f4bc7e4c600234db2734712865c9d61a8d19aea4d45
 ARG CLUSTER_NFD_OPERATOR
 
 COPY . .
