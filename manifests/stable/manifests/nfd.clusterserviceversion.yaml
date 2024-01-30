@@ -16,7 +16,7 @@ metadata:
               "configData": "#    - name: \"more.kernel.features\"\n#      matchOn:\n#      - loadedKMod: [\"example_kmod3\"]\n#    - name: \"more.features.by.nodename\"\n#      value: customValue\n#      matchOn:\n#      - nodename: [\"special-.*-node-.*\"]\n"
             },
             "operand": {
-              "image": "quay.io/openshift/origin-node-feature-discovery:4.15",
+              "image": "quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery-1/openshift-node-feature-discovery2@sha256:b70f57ebeb7a7ccbd158907ed4dd3c837488bf341dc78a3d8b5e3b686df424fc",
               "servicePort": 12000
             },
             "workerConfig": {
@@ -797,7 +797,7 @@ spec:
                 - name: OPERATOR_NAME
                   value: cluster-nfd-operator
                 - name: NODE_FEATURE_DISCOVERY_IMAGE
-                  value: quay.io/openshift/origin-node-feature-discovery:4.15
+                  value: quay.io/redhat-user-workloads/rhn-gps-cprocter-tenant/openshift-node-feature-discovery-1/openshift-node-feature-discovery2@sha256:b70f57ebeb7a7ccbd158907ed4dd3c837488bf341dc78a3d8b5e3b686df424fc
                 image: quay.io/openshift/origin-cluster-nfd-operator:4.15
                 livenessProbe:
                   httpGet:
