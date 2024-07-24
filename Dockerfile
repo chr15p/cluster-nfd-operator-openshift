@@ -9,7 +9,7 @@ RUN make build
 
 # Create production image for running the operator
 #FROM registry.ci.openshift.org/ocp/4.16:base-rhel9
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.3
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4-1194
 
 
 ARG CSV=4.16
