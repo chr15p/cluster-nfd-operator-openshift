@@ -7,7 +7,7 @@ COPY . .
 RUN make build
 
 # Create production image for running the operator
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.3
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4-1194
 
 ARG CSV=4.14
 COPY --from=builder /go/src/github.com/openshift/cluster-nfd-operator/node-feature-discovery-operator /
